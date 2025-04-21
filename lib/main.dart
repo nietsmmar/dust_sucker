@@ -44,7 +44,7 @@ class SuckWorld extends World {
 class SuckGame extends FlameGame
     with SingleGameInstance, HasKeyboardHandlerComponents {
   @override
-  Color backgroundColor() => const Color(0x00000000);
+  Color backgroundColor() => const Color(0x001e1e1e);
 
   SuckGame() : super(world: SuckWorld());
 
