@@ -55,10 +55,10 @@ class Player extends SpriteComponent
   }
 
   bool _withinBounds(Vector2 pos) {
-    double width = (SuckWorld.gridWidth * SuckWorld.tileSize) / 2;
-    double height = (SuckWorld.gridHeight * SuckWorld.tileSize) / 2;
-    return pos.x >= -width &&
-        pos.y >= -height &&
+    double width = (SuckWorld.gridWidth * SuckWorld.tileSize);
+    double height = (SuckWorld.gridHeight * SuckWorld.tileSize);
+    return pos.x >= 0 &&
+        pos.y >= 0 &&
         pos.x < width &&
         pos.y < height;
   }

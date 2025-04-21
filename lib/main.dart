@@ -18,6 +18,7 @@ class SuckWorld extends World {
   Future<void> onLoad() async {
     add(
       RectangleComponent(
+        children: [Player('player.png', position: Vector2(0, 0))],
         position: Vector2(
           -(gridWidth * tileSize) / 2,
           -(gridHeight * tileSize) / 2,
@@ -28,16 +29,17 @@ class SuckWorld extends World {
     );
     add(
       RectangleComponent(
+        children: [
+          Player('player2.png', position: Vector2(2, 2)),
+        ],
         position: Vector2(
           -(gridWidth * tileSize) / 2,
-          -(gridHeight * tileSize) *1.5,
+          -(gridHeight * tileSize) * 1.7,
         ),
         size: Vector2(gridWidth * tileSize, gridHeight * tileSize),
         paint: Paint()..color = const Color(0xffee0077), // transparent
       ),
     );
-    add(Player('player.png', position: Vector2(0, 0)));
-    add(Player('player2.png', position: Vector2(tileSize*2, tileSize*2)));
   }
 }
 
