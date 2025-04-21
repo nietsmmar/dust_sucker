@@ -21,7 +21,7 @@ class SuckWorld extends World {
         children: [Player('player.png', position: Vector2(0, 0))],
         position: Vector2(
           -(gridWidth * tileSize) / 2,
-          -(gridHeight * tileSize) / 2,
+          (gridHeight * tileSize) / 2,
         ),
         size: Vector2(gridWidth * tileSize, gridHeight * tileSize),
         paint: Paint()..color = const Color(0xff00ffff), // transparent
@@ -29,12 +29,10 @@ class SuckWorld extends World {
     );
     add(
       RectangleComponent(
-        children: [
-          Player('player2.png', position: Vector2(2, 2)),
-        ],
+        children: [Player('player2.png', position: Vector2(0, 0))],
         position: Vector2(
           -(gridWidth * tileSize) / 2,
-          -(gridHeight * tileSize) * 1.7,
+          -(gridHeight * tileSize),
         ),
         size: Vector2(gridWidth * tileSize, gridHeight * tileSize),
         paint: Paint()..color = const Color(0xffee0077), // transparent
