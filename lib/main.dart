@@ -1,39 +1,44 @@
 import 'package:dust_sucker/player.dart';
 import 'package:flame/events.dart';
-import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flame/components.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'dart:core';
 
 void main() {
   runApp(GameWidget(game: SuckGame()));
 }
 
 class SuckWorld extends World {
-  static const int gridWidth = 10;
-  static const int gridHeight = 10;
+  static const int gridWidth = 11;
+  static const int gridHeight = 11;
   static const double tileSize = 32.0; // Each tile is 32x32 pixels
   @override
   Future<void> onLoad() async {
     add(
       RectangleComponent(
-        children: [Player('player.png', position: Vector2(0, 0))],
-        position: Vector2(
-          -(gridWidth * tileSize) / 2,
-          (gridHeight * tileSize) / 2,
-        ),
+        anchor: Anchor.topCenter,
+        children: [
+          Player(
+            'player.png',
+            position: Vector2(
+              (gridWidth / 2).floor() * tileSize,
+              gridHeight * tileSize - tileSize,
+            ),
+          ),
+        ],
+        position: Vector2.zero(),
         size: Vector2(gridWidth * tileSize, gridHeight * tileSize),
         paint: Paint()..color = const Color(0xff00ffff), // transparent
       ),
     );
     add(
       RectangleComponent(
-        children: [Player('player2.png', position: Vector2(0, 0))],
-        position: Vector2(
-          -(gridWidth * tileSize) / 2,
-          -(gridHeight * tileSize),
-        ),
+        anchor: Anchor.bottomCenter,
+        children: [Player('player2.png', position: Vector2(
+          (gridWidth / 2).floor() * tileSize,
+          gridHeight * tileSize - tileSize,))],
+        position: Vector2.zero(),
         size: Vector2(gridWidth * tileSize, gridHeight * tileSize),
         paint: Paint()..color = const Color(0xffee0077), // transparent
       ),
